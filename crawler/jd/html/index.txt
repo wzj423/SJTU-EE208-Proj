@@ -1,0 +1,10 @@
+# We assume that your web crawler programs write name and url informations into this file so that 
+# url information won't get lost in the following stages. The format is given below:
+
+# (html file's full name including the .html suffix)+(an tab '\t' )+(url)
+# an example:
+
+abcd.html	www.baidu.com
+
+# Besides, if comments are needed, just put an '#' and a space at the front of your comment line.
+# Good luck & have fun!
