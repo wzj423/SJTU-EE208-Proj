@@ -1,0 +1,28 @@
+{% extends 'search_results_base.html' %}
+
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='search/imgsearch.css') }}">
+{% endblock %}    
+
+{% block results %}
+{% if lucene_results%}
+<div class='container'>
+{% for lucene_result in lucene_results%}
+<div class="gallery-container w-2 h-2">
+    <div class="gallery-item">
+      <div class="image">
+          <a href={{lucene_result[0]}}>
+        <img src={{lucene_result[0]}} alt="nature" referrerPolicy="no-referrer">              
+          </a>
+
+      </div>
+      <div class="text">{{lucene_result[1]}}</div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+{% else %}
+    No matching results for your search query.
+{% endif %}
+{% endblock %}

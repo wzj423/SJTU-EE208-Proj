@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='search/search_box.css') }}">
+  <meta charset="UTF-8">
+  <title>Search</title>
+  <script src="https://kit.fontawesome.com/06522237e8.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="main-select">
+    <div style="display: table;">
+      <div style="display: table-row;">
+        <div style="display: table-cell;">
+          <span><a href="/">web</a></span>
+        </div>
+
+        <div style="display: table-cell;">
+          <span><a href="/imgsearch/">image</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="search">
+      <form id='searchForm' method='post'></form>
+      <input type="text" name='keywords' class="searchTerm" form='searchForm' placeholder="What are you looking for?">
+      <button type="submit" form="searchForm" class="searchButton">
+        <i class="fa fa-search"></i>
+
+      </button>
+    </div>
+  </div>
+</body>
+{% block content %}{% endblock %}
+
+</html>

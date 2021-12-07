@@ -1,0 +1,158 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body{
+  background: #f2f2f2;
+  font-family: 'Open Sans', sans-serif;
+  margin:0px
+}
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.topnav{
+  position: sticky;
+    display:table;
+    margin: 0px;
+    width: 100%;
+}
+
+.topnavSearchWrap{
+    display: table-cell;
+    width: 50%;
+
+}
+.logo{
+    display: table-cell;
+}
+.logo span {
+    float: left;
+    font-size: 140%;
+    margin-left: 10px;
+    margin-right: 10px;
+    line-height: 50px;
+    vertical-align: middle;
+}
+.inhead {
+    padding: 10px;
+    background-color: aliceblue;
+    border-bottom: 2px solid #00B4CC;
+}
+
+
+
+.result {
+  display: block;
+  max-width: 748px;
+  margin: auto;
+}
+
+.item {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  max-width: 748px;
+  overflow: hidden;
+  height: 70px;
+  cursor: pointer;
+  padding: 10px 0;
+  border-top: 1px solid rgba(104, 199, 206, 0.2);
+}
+body {
+  background-color: white;
+}
+.item:hover{
+  padding: 10px;
+  width: calc(100% + 10px * 2);
+  margin-left: -20px;
+  margin-top: -1px;
+  border: 1px solid rgba(104, 199, 206, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(104, 199, 206, 0.4);
+}
+
+.path {
+  display: inline-block;
+  white-space: nowrap;
+  color: #006000;
+  display: inline-block;
+  overflow: hidden;
+  max-width: 91%;
+  font-size: 14px;
+  vertical-align: top;
+}
+.path:hover{
+  display: inline-block;
+  white-space: nowrap;
+  color: red;
+  display: inline-block;
+  overflow: hidden;
+  max-width: 91%;
+  font-size: 14px;
+  vertical-align: top;
+}
+
+.link_container {
+  width: auto;
+}
+
+.caption {
+  color: navy;
+  font-size: 18px;
+}
+.main-table{
+  display: table;
+
+}
+
+.img-item {
+  display: inline-block;
+  list-style-type: none;
+  width: 200px;
+  height: auto;
+  border: 1px solid rgba(104, 199, 206, 0.2);
+}
+
+.img-item:hover{
+  border: 1px solid rgba(104, 199, 206, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(104, 199, 206, 0.4);
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='search/search_box.css') }}">
+    {% block extra_css %}
+    {% endblock %}    
+    <meta charset="UTF-8">
+    <title>Search</title>
+    <script src="https://kit.fontawesome.com/06522237e8.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="inhead">
+        <div class="topnav">
+            <div class="logo"> <a class="logo" href="/"> <!--<img src="/images/logo.png"
+                        alt="WrongSearch">--><span>WrongSearch</span></a> </div>
+            <div class='topnavEmptySpace'></div>
+            <div class="topnavSearchWrap">
+                <div class="search">
+                    <form id='topnavSearchForm' action='.' method="post"></form>
+                    <input type="text" name='keywords' class="searchTerm" form='topnavSearchForm'
+                        placeholder="What are you looking for?">
+                    <button type="submit" form="topnavSearchForm" class="searchButton">
+                        <i class="fa fa-search"></i>
+
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="result">
+        {% block results %}
+        {% endblock %}
+
+    </div>
+</body>
+
+</html>
