@@ -19,7 +19,7 @@ headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36'
 }
 
-search_keyword="鞋"
+search_keyword="包"
 index_datas=[]
 try:
     f=open(f"data-{search_keyword}.json",encoding='utf-8')
@@ -48,7 +48,7 @@ for index_data in tqdm(index_datas):
         comment_json_data += json.loads(comment_html.text)['data']
     comment_tot_data[pid]=comment_json_data
     _i+=1
-    if _i%20==0:
+    if _i%(int(len(index_datas)/10))==0:
         with open(f'comment-{search_keyword}.json', 'w', encoding='utf-8') as f:
             json.dump(comment_tot_data, f, ensure_ascii=False, indent=4)
         sleep(randint(5,10))

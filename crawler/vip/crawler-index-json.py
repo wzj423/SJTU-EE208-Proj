@@ -60,3 +60,6 @@ for num in range(0, (n+1)*120, 120):  # 这里是从第二页开始取数据了�
 with open(f'data-{search_keyword}-tmp.json', 'r', encoding='utf-8') as fin:
     with open(f'data-{search_keyword}.json', 'w', encoding='utf-8') as fout:
         fout.write(fin.read().replace("][",","))
+with open(f'data-{search_keyword}-tmp.json', 'w', encoding='utf-8') as f:
+    pass
+    #delete temp files

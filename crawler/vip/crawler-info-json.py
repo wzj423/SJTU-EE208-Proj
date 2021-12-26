@@ -59,7 +59,7 @@ def crawl(playwright):
 
         ful_detailed_data[pid]=cur_detailed_data
         _i+=1
-        if(_i % 10 == 0) :
+        if(_i % (int(len(index_datas)/10)) == 0) :
             with open(f'detail-{search_keyword}.json', 'w', encoding='utf-8') as f:
                 json.dump(ful_detailed_data, f, ensure_ascii=False, indent=4)
     
