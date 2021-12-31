@@ -16,8 +16,15 @@ headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36'
 }
 
-search_keyword="包"
-n = 20  # n就是用来确定请求的页数，可以使用input语句替代
+
+url="https://mapi.vip.com/vips-mobile/rest/shopping/pc/rule/product/filters/v1?callback=getProductsFiltersCb&warehouse=VIP_SH&fdc_area_id=103101101&client=pc&mobile_platform=1&province_id=103101&api_key=70f71280d5d547b2a7bb370a529aeea1&user_id=&mars_cid=1640401339247_dc74b1566f36bcdd4e14e753d82d4f50&wap_consumer=a&mtmsRuleId=52403836&fields=brandStore,category,categoryId,props,vipService&categoryId=&brandStoreSns=&salePlatform=1&"
+html = requests.get(url, headers=headers)
+start = html.text.index('{')
+end = html.text.index('})')+1
+json_data = json.loads(html.text[start:end])['data']
+exit(0)
+search_keyword="运动鞋"
+n = 2  # n就是用来确定请求的页数，可以使用input语句替代
 for num in range(0, (n+1)*120, 120):  # 这里是从第二页开始取数据了，第一个参数可以设置为0
     #url = f'https://mapi.vip.com/vips-mobile/rest/shopping/pc/search/product/rank?callback=getMerchandiseIds&app_name=shop_pc&app_version=4.0&warehouse=VIP_HZ&fdc_area_id=104101115&client=pc&mobile_platform=1&province_id=104101&api_key=70f71280d5d547b2a7bb370a529aeea1&user_id=&mars_cid=1600153235012_7a06e53de69c79c1bad28061c13e9375&wap_consumer=a&standby_id=nature&keyword=%E6%8A%A4%E8%82%A4%E5%A5%97%E8%A3%85&lv3CatIds=&lv2CatIds=&lv1CatIds=&brandStoreSns=&props=&priceMin=&priceMax=&vipService=&sort=0&pageOffset={num}&channelId=1&gPlatform=PC&batchSize=120&_=1600158865435'
     
@@ -62,4 +69,5 @@ with open(f'data-{search_keyword}-tmp.json', 'r', encoding='utf-8') as fin:
         fout.write(fin.read().replace("][",","))
 with open(f'data-{search_keyword}-tmp.json', 'w', encoding='utf-8') as f:
     pass
+os.remove(f'data-{search_keyword}-tmp.json')
     #delete temp files
