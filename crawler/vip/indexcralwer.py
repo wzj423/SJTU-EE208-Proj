@@ -51,7 +51,7 @@ if __name__=="__main__":
         print(search_keyword,page_num)
     else :
         search_keyword=input("Please input the keyword:")
-        page_num=input("Please input the number of pages to crawl (120 items per page):")
+        page_num=str(input("Please input the number of pages to crawl (120 items per page):"))
     print("#"*10+"Now CRAWLING INDEX INFO"+"#"*10)
 
     crawl_index(search_keyword,page_num)
