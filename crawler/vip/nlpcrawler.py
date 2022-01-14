@@ -33,18 +33,18 @@ def crawl_comment_nlp(search_keyword):
     url_comment_template = "https://mapi.vip.com/vips-mobile/rest/ugc/reputation/getSpuIdNlpKeywordV2_for_pc?callback=getSpuIdNlpKeywordCb&app_name=shop_pc&app_version=4.0&warehouse=VIP_SH&fdc_area_id=103101101&client=pc&mobile_platform=1&province_id=103101&api_key=70f71280d5d547b2a7bb370a529aeea1&user_id=&mars_cid=1640401339247_dc74b1566f36bcdd4e14e753d82d4f50&wap_consumer=a&showTagOther=1&spuId=1664157099241238534&_=1640412803841"
     _i = 0
     comment_tot_data = json.loads(json.dumps({}))
-    for index_data in tqdm(index_datas[0:1]):
+    for index_data in tqdm(index_datas,desc="COMMENT-NLP"):
         pid = index_data['productId']
         spuId = index_data['spuId']
         brandId = index_data['brandId']
 
         url_comment = url_comment_template
         comment_html = requests.get(url_comment, headers=headers)
-        print(comment_html.text)
+        #print(comment_html.text)
         start = comment_html.text.index('{')
         end = comment_html.text.index('})')+1
         json_comment=json.loads(comment_html.text[start:end])['data']
-        print(json_comment)
+        #print(json_comment)
         comment_tot_data[pid] = json_comment
         _i += 1
         if _i % 20 == 0:
@@ -58,4 +58,5 @@ if __name__=="__main__":
         print(search_keyword)
     else :
         search_keyword=input("Please input the keyword:")
+    print("#"*10+"Now CRAWLING NLP ANALYSIS INFO OF COMMENTS"+"#"*10)
     crawl_comment_nlp(search_keyword)

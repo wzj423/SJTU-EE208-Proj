@@ -43,13 +43,17 @@ def crawl_detail(search_keyword):
         browser = chromium.launch(headless=True)
 
         _i=0
-        for index_data in tqdm(index_datas):
+        for index_data in tqdm(index_datas,desc="INFO-DATA"):
             pid=index_data['productId']
             spuId=index_data['spuId']
             brandId=index_data['brandId']
         
             page = browser.new_page()
             page.on("response", select)
+            page.route("**/*", lambda route: route.abort() 
+                if route.request.resource_type in ("image","font") 
+                else route.continue_() 
+            )
             page.goto(f"https://detail.vip.com/detail-{brandId}-{pid}.html")
             page.wait_for_load_state(state='networkidle')
             page.close()
@@ -69,4 +73,6 @@ if __name__=="__main__":
         print(search_keyword)
     else :
         search_keyword=input("Please input the keyword:")
+    print("#"*10+"Now CRAWLING DETAIL INFO"+"#"*10)
+
     crawl_detail(search_keyword)

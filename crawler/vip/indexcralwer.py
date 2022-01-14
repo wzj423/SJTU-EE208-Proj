@@ -19,7 +19,7 @@ headers = {
 
 def crawl_index(search_keyword,page_num):
     n = page_num  # n就是用来确定请求的页数，可以使用input语句替代
-    for num in range(0, (n+1)*120, 120):   
+    for num in range(0, (n)*120, 120):   
         url=f'https://mapi.vip.com/vips-mobile/rest/shopping/pc/search/product/rank?callback=getMerchandiseIds&app_name=shop_pc&app_version=4.0&warehouse=VIP_SH&fdc_area_id=103101101&client=pc&mobile_platform=1&province_id=103101&api_key=70f71280d5d547b2a7bb370a529aeea1&user_id=&mars_cid=1640401339247_dc74b1566f36bcdd4e14e753d82d4f50&wap_consumer=a&standby_id=nature&keyword={search_keyword}&lv3CatIds=&lv2CatIds=&lv1CatIds=&brandStoreSns=&props=&priceMin=&priceMax=&vipService=&sort=0&pageOffset={num}&channelId=1&gPlatform=PC&batchSize=120&_=1640402620351'
         html = requests.get(url, headers=headers)
         start = html.text.index('{')
@@ -52,4 +52,6 @@ if __name__=="__main__":
     else :
         search_keyword=input("Please input the keyword:")
         page_num=input("Please input the number of pages to crawl (120 items per page):")
+    print("#"*10+"Now CRAWLING INDEX INFO"+"#"*10)
+
     crawl_index(search_keyword,page_num)

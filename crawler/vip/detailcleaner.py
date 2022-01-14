@@ -52,4 +52,5 @@ if __name__=="__main__":
         print(search_keyword)
     else :
         search_keyword=input("Please input the keyword:")
+    print("#"*10+"Now CLEANING DETAILS"+"#"*10)
     clean_detail(search_keyword)

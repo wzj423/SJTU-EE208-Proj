@@ -13,7 +13,7 @@ def clean_comments(search_keyword):
         with open(f"comment-{search_keyword}.json",encoding='utf-8') as f:
             cmt_datas=json.load(f)
     except Exception as e:
-        print("No product index json files of such keyword!")
+        print("No comment json files of such keyword!")
 
     cleaned_cmt_data=json.loads(json.dumps({}))
 
@@ -28,4 +28,5 @@ if __name__=="__main__":
         print(search_keyword)
     else :
         search_keyword=input("Please input the keyword:")
+    print("#"*10+"Now CLEANING COMMENTS"+"#"*10)
     clean_comments(search_keyword)

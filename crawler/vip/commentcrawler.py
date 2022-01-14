@@ -30,7 +30,7 @@ def crawl_comment(search_keyword):
     url_comment_template="https://mapi.vip.com/vips-mobile/rest/content/reputation/queryBySpuId_for_pc?api_key=70f71280d5d547b2a7bb370a529aeea1&&spuId={}&brandId={}&page={}&pageSize=10"
     _i=0
     comment_tot_data=json.loads(json.dumps({}))
-    for index_data in tqdm(index_datas):
+    for index_data in tqdm(index_datas,desc="COMMENT"):
         pid=index_data['productId']
         spuId=index_data['spuId']
         brandId=index_data['brandId']
@@ -57,4 +57,6 @@ if __name__=="__main__":
         print(search_keyword)
     else :
         search_keyword=input("Please input the keyword:")
+    print("#"*10+"Now CRAWL COMMENTS"+"#"*10)
+
     crawl_comment(search_keyword)
