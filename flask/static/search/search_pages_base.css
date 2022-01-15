@@ -1,0 +1,108 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body{
+  background: white;
+  font-family: 'Open Sans', sans-serif;
+  margin:0px
+}
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.topnav{
+  position: sticky;
+    display:table;
+    margin: 0px;
+    width: 100%;
+}
+
+.topnavSearchWrap{
+    display: table-cell;
+    width: 50%;
+
+}
+.logo{
+    display: table-cell;
+}
+.logo span {
+    float: left;
+    font-size: 140%;
+    margin-left: 10px;
+    margin-right: 10px;
+    line-height: 50px;
+    vertical-align: middle;
+}
+.headnav {
+    padding: 10px;
+    background-color: aliceblue;
+    border-bottom: 2px solid #00B4CC;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1;
+}
+
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 200px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 72px; /* Stay at the top */
+  left: 0;
+  background-color: white;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-shadow: 0 0 10px rgba(104, 199, 206, 0.2);
+  border-right: 1px solid #00B4CC;
+}
+
+.result {
+  display: block;
+  max-width: 748px;
+  margin-left: 320px;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-top: 80px;
+}
+

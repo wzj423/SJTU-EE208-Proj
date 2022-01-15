@@ -2,19 +2,21 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="{{ url_for('static', filename='search/search_box.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='search/search_pages_base.css') }}">
     {% block extra_css %}
-    {% endblock %}    
+    {% endblock %}
     <meta charset="UTF-8">
     <title>Search</title>
     <script src="https://kit.fontawesome.com/06522237e8.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div class="inhead">
+    <div class="headnav">
         <div class="topnav">
-            <div class="logo"> <a class="logo" href="/"> <!--<img src="/images/logo.png"
-                        alt="WrongSearch">--><span>WrongSearch</span></a> </div>
+            <div class="logo"> <a class="logo" href="/">
+                    <!--<img src="/images/logo.png"
+                        alt="WrongSearch">--><span>WrongSearch</span>
+                </a> </div>
             <div class='topnavEmptySpace'></div>
             <div class="topnavSearchWrap">
                 <div class="search">
@@ -28,6 +30,11 @@
                 </div>
             </div>
         </div>
+    </div>
+    <!-- Side navigation -->
+    <div class="sidenav">
+        {% block sidenav %}
+        {% endblock %}
     </div>
     <div class="result">
         {% block results %}

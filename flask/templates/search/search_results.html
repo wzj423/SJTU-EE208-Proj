@@ -1,5 +1,10 @@
 {% extends 'search_results_base.html' %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='search/textsearch.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='search/sidenav.css') }}">
+{% endblock %}  
+
 {% block results %}
 {% if lucene_results%}
 {% for lucene_result in lucene_results%}
@@ -34,3 +39,42 @@
     No matching results for your search query.
 {% endif %}
 {% endblock %}
+
+{% block sidenav %}
+
+<h4>品牌</h4>
+<label class="ckboxcontainer">品牌0
+  <input type="checkbox" checked="checked">
+  <span class="checkmark"></span>
+</label>
+<hr class='sidehr'>
+<h4>类别</h4>
+<label class="ckboxcontainer">类别0
+  <input type="checkbox" checked="checked">
+  <span class="checkmark"></span>
+</label>
+<hr class='sidehr'>
+<h4>特点筛选</h4>
+<label class="ckboxcontainer">特点0
+  <input type="checkbox" checked="checked">
+  <span class="checkmark"></span>
+</label>
+<hr class='sidehr'>
+<h4>排序方式</h4>
+<label class="ratiocontainer">相关度
+    <input type="radio" checked="checked" name="sortway" value='similarity'>
+    <span class="ratiomark"></span>
+  </label>
+  <label class="ratiocontainer">价格升序
+    <input type="radio" name="sortway" value='priceup'>
+    <span class="ratiomark"></span>
+  </label>
+  <label class="ratiocontainer">价格降序
+    <input type="radio" name="sortway" value='pricedown'>
+    <span class="ratiomark"></span>
+  </label>
+  <label class="ratiocontainer">好评度
+    <input type="radio" name="sortway" value='comment'>
+    <span class="ratiomark"></span>
+  </label>
+{% endblock %}  

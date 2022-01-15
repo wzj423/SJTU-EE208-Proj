@@ -1,0 +1,69 @@
+.item {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    max-width: 748px;
+    overflow: hidden;
+    height: 70px;
+    cursor: pointer;
+    padding: 10px 0;
+    border-top: 1px solid rgba(104, 199, 206, 0.2);
+  }
+  
+  .item:hover{
+    padding: 10px;
+    width: calc(100% + 10px * 2);
+    margin-left: -20px;
+    margin-top: -1px;
+    border: 1px solid rgba(104, 199, 206, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(104, 199, 206, 0.4);
+  }
+  
+  .path {
+    display: inline-block;
+    white-space: nowrap;
+    color: #006000;
+    display: inline-block;
+    overflow: hidden;
+    max-width: 91%;
+    font-size: 14px;
+    vertical-align: top;
+  }
+  .path:hover{
+    display: inline-block;
+    white-space: nowrap;
+    color: red;
+    display: inline-block;
+    overflow: hidden;
+    max-width: 91%;
+    font-size: 14px;
+    vertical-align: top;
+  }
+  
+  .link_container {
+    width: auto;
+  }
+  
+  .caption {
+    color: navy;
+    font-size: 18px;
+  }
+  .main-table{
+    display: table;
+  
+  }
+  
+  .img-item {
+    display: inline-block;
+    list-style-type: none;
+    width: 200px;
+    height: auto;
+    border: 1px solid rgba(104, 199, 206, 0.2);
+  }
+  
+  .img-item:hover{
+    border: 1px solid rgba(104, 199, 206, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(104, 199, 206, 0.4);
+  }
