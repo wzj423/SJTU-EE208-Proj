@@ -1,12 +1,21 @@
 # SJTU EE208
 import os
 import sys
-from flask import Flask, redirect, render_template, request, url_for
+
+from werkzeug.utils import secure_filename
+
 from backend.SearchPages import init_lucene
+from flask import Flask, flash, redirect, render_template, request, url_for
+
+UPLOAD_FOLDER = './uploads'
+ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
+
+
 
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
+    app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
     app.config.from_mapping(
         ENV='development',
         SECRET_KEY='dev',
@@ -33,7 +42,8 @@ def create_app(test_config=None):
     def redirect_to_search():
         #return redirect(url_for('search.search_results',keywords='中国'))
         return redirect(url_for('search.search_webpages'))
-    import search, imgsearch
+    import imgsearch
+    import search
     app.register_blueprint(search.bp)
     app.register_blueprint(imgsearch.bp)
     return app

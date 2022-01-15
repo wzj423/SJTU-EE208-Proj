@@ -1,13 +1,13 @@
 .item {
-    display: table;
-    table-layout: fixed;
+    display: block;
+    /*table-layout: fixed;*/
     width: 100%;
-    max-width: 748px;
+    max-width: 1200px;
     overflow: hidden;
-    height: 70px;
+    height: 200px;
     cursor: pointer;
     padding: 10px 0;
-    border-top: 1px solid rgba(104, 199, 206, 0.2);
+    border-top: 1px solid rgba(104, 199, 206, 0.7);
   }
   
   .item:hover{
@@ -15,11 +15,20 @@
     width: calc(100% + 10px * 2);
     margin-left: -20px;
     margin-top: -1px;
-    border: 1px solid rgba(104, 199, 206, 0.2);
+    border: 1px solid rgba(104, 199, 206, 0.9);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(104, 199, 206, 0.4);
   }
   
+.image {
+  float:left;
+  width: 200px;
+  height: 200px;
+}
+.detail{
+  margin-left: 220px;
+  height: 200px;
+}
   .path {
     display: inline-block;
     white-space: nowrap;

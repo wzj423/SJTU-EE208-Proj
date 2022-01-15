@@ -73,7 +73,7 @@ hr.sidehr {
 
 
 
-  .ratiocontainer {
+  .radiocontainer {
     display: block;
     position: relative;
     padding-left: 35px;
@@ -87,13 +87,13 @@ hr.sidehr {
   }
   
   /* Hide the browser's default radio button */
-  .ratiocontainer input {
+  .radiocontainer input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
   }
 /* Create a custom radio button */
-.ratiomark {
+.radiomark {
     position: absolute;
     top: 0;
     left: 0;
@@ -104,29 +104,29 @@ hr.sidehr {
   }
   
   /* On mouse-over, add a grey background color */
-  .ratiocontainer:hover input ~ .ratiomark {
+  .radiocontainer:hover input ~ .radiomark {
     background-color: #ccc;
   }
   
   /* When the radio button is checked, add a blue background */
-  .ratiocontainer input:checked ~ .ratiomark {
+  .radiocontainer input:checked ~ .radiomark {
     background-color: #2196F3;
   }
   
   /* Create the indicator (the dot/circle - hidden when not checked) */
-  .ratiomark:after {
+  .radiomark:after {
     content: "";
     position: absolute;
     display: none;
   }
   
   /* Show the indicator (dot/circle) when checked */
-  .ratiocontainer input:checked ~ .ratiomark:after {
+  .radiocontainer input:checked ~ .radiomark:after {
     display: block;
   }
   
   /* Style the indicator (dot/circle) */
-  .ratiocontainer .ratiomark:after {
+  .radiocontainer .radiomark:after {
        top: 9px;
       left: 9px;
       width: 8px;

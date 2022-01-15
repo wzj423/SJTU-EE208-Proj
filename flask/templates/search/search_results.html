@@ -3,78 +3,129 @@
 {% block extra_css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='search/textsearch.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='search/sidenav.css') }}">
-{% endblock %}  
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='search/advancedSearch.js') }}"></script>
+{% endblock %}
+
+{% block title %}
+<title>{{title}}</title>
+{% endblock %}
 
 {% block results %}
-{% if lucene_results%}
-{% for lucene_result in lucene_results%}
+{% if results%}
+{% for result in results%}
 <div class='item'>
     <div>
-        <div class=icon>
-
-        </div>
-
-        <div class="caption">
-
-            <span> 
-                <a href={{lucene_result[1]}} class=link_container>
-                    {{lucene_result[0]}} 
+        <div class='image'>
+                <a href={{result[1]['smallImage']}}>
+                    <img src={{result[1]['smallImage']}} alt="productImage" referrerPolicy="no-referrer" height="90%">
                 </a>
+
+        </div>
+        <div class="detail">
+            <div class="caption">
+
+                <span>
+                    <a href={{result[1]['url']}} class=link_container>
+                        {{result[1]['title']}}
+                    </a>
+                </span>
+                <span style='color:red;font-weight:bold;'>
+                        {{'¥'+result[1]['vipshopPrice']}}
+                </span>
+                <span style='color:red;text-decoration:line-through;'>
+                    {{'¥'+result[1]['marketPrice']}}
             </span>
+            </div>
 
+
+            <a class="url path" href={{result[1]['url']}}>
+                <span> {{result[1]['url']}}</span>
+            </a>
+            <div class="highlight-text">
+                <span> {{"品类:"+result[1]['category']+"  "|safe}}</span>
+                <span> {{"品牌:"+result[1]['brandShowName']+"  "|safe}}</span>
+                <span> {{"评论评分:"+"%.6f"%result[1]['commentScore']+"  "|safe}}</span>
+            </div>
         </div>
-
-
-        <a class="url path" href={{lucene_result[1]}}>
-            <span> {{lucene_result[1]}}</span>
-        </a>
-        <div class="highlight-text">
-            <span> {{lucene_result[3][0]|safe}}</span>
-        </div>
-
     </div>
 </div>
 {% endfor %}
 {% else %}
-    No matching results for your search query.
+No matching results for your search query.
 {% endif %}
 {% endblock %}
 
-{% block sidenav %}
 
+{% block sidenav %}
+{% if statis %}
 <h4>品牌</h4>
-<label class="ckboxcontainer">品牌0
-  <input type="checkbox" checked="checked">
-  <span class="checkmark"></span>
+{% for brand in statis[0] %}
+<label class="ckboxcontainer">{{brand}}
+    <input type="checkbox" checked="checked" class="brandSelect" id='{{brand}}'>
+    <span class="checkmark"></span>
 </label>
+{% endfor %}
 <hr class='sidehr'>
+{% endif %}
+
+{% if statis %}
 <h4>类别</h4>
-<label class="ckboxcontainer">类别0
-  <input type="checkbox" checked="checked">
-  <span class="checkmark"></span>
+{% for category in statis[1] %}
+<label class="ckboxcontainer">{{category}}
+    <input type="checkbox" checked="checked" class="categorySelect" id='{{category}}'>
+    <span class="checkmark"></span>
 </label>
+{% endfor %}
 <hr class='sidehr'>
+{% endif %}
+
+
+{% if statis %}
 <h4>特点筛选</h4>
-<label class="ckboxcontainer">特点0
-  <input type="checkbox" checked="checked">
-  <span class="checkmark"></span>
-</label>
+{% for attr in statis[2] %}
+<div class="custom-select">
+    <span style="float: left;">
+        {{attr}}
+    </span>
+    <select id={{attr}} class='attrSelect'>
+      <option value="all">不限</option>
+      {% for attr_value in statis[3][attr]%}
+      <option value={{attr_value}}>{{attr_value}}</option>
+      {%endfor%}
+    </select>
+  </div>
+{% endfor %}
 <hr class='sidehr'>
+{% endif %}
+
 <h4>排序方式</h4>
-<label class="ratiocontainer">相关度
+<label class="radiocontainer">相关度
     <input type="radio" checked="checked" name="sortway" value='similarity'>
-    <span class="ratiomark"></span>
-  </label>
-  <label class="ratiocontainer">价格升序
+    <span class="radiomark"></span>
+</label>
+<label class="radiocontainer">价格升序
     <input type="radio" name="sortway" value='priceup'>
-    <span class="ratiomark"></span>
-  </label>
-  <label class="ratiocontainer">价格降序
+    <span class="radiomark"></span>
+</label>
+<label class="radiocontainer">价格降序
     <input type="radio" name="sortway" value='pricedown'>
-    <span class="ratiomark"></span>
-  </label>
-  <label class="ratiocontainer">好评度
+    <span class="radiomark"></span>
+</label>
+<label class="radiocontainer">好评度
     <input type="radio" name="sortway" value='comment'>
-    <span class="ratiomark"></span>
-  </label>
-{% endblock %}  
+    <span class="radiomark"></span>
+</label>
+
+<hr class='sidehr'>
+<button onclick="advancedSearch()" style='  background-color: #4CAF50; /* Green */
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;'>增强搜索</button>
+{% endblock %}

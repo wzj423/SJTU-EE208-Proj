@@ -5,6 +5,10 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='search/search_pages_base.css') }}">
     {% block extra_css %}
     {% endblock %}
+    {% block extra_js %}
+    {% endblock %}
+    {% block title %}
+    {% endblock %}
     <meta charset="UTF-8">
     <title>Search</title>
     <script src="https://kit.fontawesome.com/06522237e8.js" crossorigin="anonymous"></script>
@@ -20,13 +24,38 @@
             <div class='topnavEmptySpace'></div>
             <div class="topnavSearchWrap">
                 <div class="search">
+
                     <form id='topnavSearchForm' action='.' method="post"></form>
                     <input type="text" name='keywords' class="searchTerm" form='topnavSearchForm'
-                        placeholder="What are you looking for?">
+                        placeholder="请输入商品搜索信息">
+
                     <button type="submit" form="topnavSearchForm" class="searchButton">
                         <i class="fa fa-search"></i>
-
                     </button>
+
+
+                    <form id='imgForm' action='/search/imageUploader' method='POST' enctype="multipart/form-data">
+                    </form>
+
+                    <button type="submit" form="imgForm" class="independentSearchButton">
+                        <i class="far fa-image"></i>
+                    </button>
+                    <label class="uploadButton">
+                        <input type="file" id="imgFile" name="imgFile" form='imgForm' enctype="multipart/form-data" style="display:None">
+                        <i class="fa fa-cloud-upload"></i>
+                    </label>
+
+
+                    <form id='logoForm' action='/search/logoUploader' method='post' enctype="multipart/form-data">
+                    </form>
+
+                    <button type="submit" form="logoForm" class="independentSearchButton">
+                        <i class="fas fa-stream"></i>
+                    </button>
+                    <label class="uploadButton">
+                        <input type="file" id="logoFile" name="logoFile" form='logoForm' enctype="multipart/form-data"style="display:None">
+                        <i class="fa fa-cloud-upload"></i>
+                    </label>
                 </div>
             </div>
         </div>

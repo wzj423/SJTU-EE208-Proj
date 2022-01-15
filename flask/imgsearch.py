@@ -32,8 +32,3 @@ def search_results():
     results=handler(keywords)
     lucene_results=results
     return render_template('imgsearch/imgsearch_results.html',lucene_results=lucene_results)
-    if results:
-        title,url,site,frags,score=results[0]
-        return keywords+title+url+site+str(score)
-    else:
-        return keywords+"No matching results!"

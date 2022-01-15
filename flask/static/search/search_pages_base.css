@@ -7,7 +7,12 @@ body{
 }
 
 .search {
-  width: 100%;
+  width: 70%;
+  position: relative;
+  display: flex;
+}
+.imgsearch {
+  width: 25%;
   position: relative;
   display: flex;
 }
@@ -35,6 +40,36 @@ body{
   text-align: center;
   color: #fff;
   border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.independentSearchButton {
+  margin-left: 5px;
+  margin-right:0px;
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px 0px 0px 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+/*.independentSearchButton:hover + .uploadButton {
+  display: block;
+}*/
+.uploadButton {
+  /*display: none;*/
+  margin-left: 0px;
+  width: 40px;
+  height: 36px;
+  border: 0px solid #047a8a;
+  background: #047a8a;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0px;
   cursor: pointer;
   font-size: 20px;
 }
@@ -83,7 +118,7 @@ body{
 
 .sidenav {
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 200px; /* Set the width of the sidebar */
+  width: 300px; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
   top: 72px; /* Stay at the top */
@@ -99,8 +134,9 @@ body{
 
 .result {
   display: block;
-  max-width: 748px;
-  margin-left: 320px;
+  width: 100%;
+  /*max-width: 1200px;*/
+  margin-left: 480px;
   margin-right: auto;
   margin-bottom: auto;
   margin-top: 80px;
