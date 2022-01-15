@@ -1,0 +1,6 @@
+flask/backend/
+**/__pycache__/
+*.pyc
+**/temp/
+*.txt
+*.json
