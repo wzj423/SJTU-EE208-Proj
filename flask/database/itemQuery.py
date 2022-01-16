@@ -6,7 +6,7 @@ print(INTERNAL_DIR)
 itemDatas=None
 
 def getCategory(filename):
-    builtin_category=("衣服","鞋","裤","袜")
+    builtin_category=("衣服","鞋","裤","袜","帽")
     for cate in builtin_category:
         if filename.find(cate)!=-1:
             return cate
