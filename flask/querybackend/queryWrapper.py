@@ -1,5 +1,7 @@
 import json,os
-
+from querybackend.vip.Search import keywordQueryWrapped as keywordQuery
+from querybackend.vip.logo_derive_feature import Search_for_logo as logoQuery
+from querybackend.vip.search_for_product import Find_Similiarity as imageQuery
 INTERNAL_DIR=os.path.dirname(__file__)
 
 print(INTERNAL_DIR)
@@ -9,10 +11,11 @@ debugOutput=['6919654910762287749', '6919654911604462238', '6919495701707184450'
 
 def keywordQueryWrapped(keyword):
     if not keyword or keyword=='': return []
-
+    return keywordQuery(keyword)
     return debugOutput
 
 def imageQueryWrapped(image):
+    return imageQuery(image)
     return debugOutput 
 def logoQueryWrapped(logo):
     return debugOutput

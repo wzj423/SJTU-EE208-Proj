@@ -5,6 +5,7 @@ import os
 import sys
 from os import ttyname
 from cv2 import imread
+from PIL import Image
 from werkzeug.utils import secure_filename
 
 from backend.SearchPages import (get_search_handler, init_lucene,
@@ -60,17 +61,17 @@ def search_results():
     # lucene_results=results
 
     if  imageFilename:
-        image=imread(os.path.join(current_app.config['UPLOAD_FOLDER'], imageFilename))
+        image=Image.open(os.path.join(current_app.config['UPLOAD_FOLDER'], imageFilename))
         resultIndex = imageQueryWrapped(image)
     elif logoFilename:
-        logo=imread(os.path.join(current_app.config['UPLOAD_FOLDER'], logoFilename))
+        logo=Image.open(os.path.join(current_app.config['UPLOAD_FOLDER'], logoFilename))
         resultIndex = logoQueryWrapped(logo)
     else:
 
-        resultIndex = keywordQueryWrapped("123")
+        resultIndex = keywordQueryWrapped(keywords)
 
     print(resultIndex)
-    results = queryItems(resultIndex)
+    results = queryItems(resultIndex) 
     statis = resultsCounter(results)  # 做一点微小的统计工作
     filtered_results = filterItems(results, brands, cate, attr)  # 做一点微小的过滤工作
     sorted_filtered_results = sortItems(filtered_results, sortway)

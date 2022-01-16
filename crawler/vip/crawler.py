@@ -10,6 +10,7 @@ from requests.api import head
 from indexcralwer import crawl_index
 from infocralwer import crawl_detail
 from commentcrawler import crawl_comment
+from commentcrawler2 import crawl_comment_ex
 from nlpcrawler import crawl_comment_nlp
 
 from detailcleaner import clean_detail
@@ -45,7 +46,7 @@ if __name__=="__main__":
     # First we need to crawl the index of the items, without the data-{keyword}.json the following procedures cannot be runed.
     crawl_index(search_keyword,page_num)
 
-    sub_crawl=(crawl_comment,crawl_detail,crawl_comment_nlp)
+    sub_crawl=(crawl_comment_ex,crawl_detail,crawl_comment_nlp)
     p = Pool(3)
     for i in sub_crawl:
         p.apply_async(i, args=(search_keyword,))
