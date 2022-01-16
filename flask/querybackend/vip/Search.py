@@ -45,7 +45,7 @@ def keywordQueryWrapped(keyword):
             querys.add(query, BooleanClause.Occur.SHOULD)
             query = QueryParser("attrs",analyzer).parse(word)
             querys.add(query, BooleanClause.Occur.SHOULD)
-    scoreDocs = searcher.search(querys.build(), 20).scoreDocs
+    scoreDocs = searcher.search(querys.build(), 400).scoreDocs
     print("%s total matching documents." % len(scoreDocs))
     Related_Id=list()
     for scoreDoc in scoreDocs:

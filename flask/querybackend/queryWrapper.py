@@ -18,4 +18,4 @@ def imageQueryWrapped(image):
     return imageQuery(image)
     return debugOutput 
 def logoQueryWrapped(logo):
-    return debugOutput
+    return logoQuery(logo)

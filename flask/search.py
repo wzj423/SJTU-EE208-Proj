@@ -64,8 +64,9 @@ def search_results():
         image=Image.open(os.path.join(current_app.config['UPLOAD_FOLDER'], imageFilename))
         resultIndex = imageQueryWrapped(image)
     elif logoFilename:
-        logo=Image.open(os.path.join(current_app.config['UPLOAD_FOLDER'], logoFilename))
-        resultIndex = logoQueryWrapped(logo)
+        logo=imread(os.path.join(current_app.config['UPLOAD_FOLDER'], logoFilename))
+        resultKeywords = logoQueryWrapped(logo)
+        resultIndex=keywordQueryWrapped(resultKeywords)
     else:
 
         resultIndex = keywordQueryWrapped(keywords)

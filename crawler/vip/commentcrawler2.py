@@ -29,8 +29,6 @@ def crawl_comment_ex(search_keyword):
         index_datas=json.load(f)
     except Exception as e:
         print("No product index json files of such keyword!")
-    with open(f'detail-{search_keyword}.json', 'w', encoding='utf-8') as f:
-        pass
 
     ful_detailed_data=json.loads(json.dumps({}))
     def select(response):
