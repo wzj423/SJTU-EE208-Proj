@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <div class="main-select">
+<!--  <div class="main-select">
     <div style="display: table;">
       <div style="display: table-row;">
         <div style="display: table-cell;">
@@ -21,6 +21,9 @@
         </div>
       </div>
     </div>
+  </div>-->
+  <div class="bigLogo">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="example" class="bigLogo"/>
   </div>
   <div class="wrap">
     <div class="search">
@@ -28,9 +31,36 @@
       <input type="text" name='keywords' class="searchTerm" form='searchForm' placeholder="What are you looking for?">
       <button type="submit" form="searchForm" class="searchButton">
         <i class="fa fa-search"></i>
-
       </button>
     </div>
+
+
+    <div class="imgSearchWrap">
+      <form id='imgForm' action='/search/imageUploader' method='POST' enctype="multipart/form-data">
+      </form>
+
+      <button type="submit" form="imgForm" class="independentSearchButton">
+          <i class="far fa-image"></i>
+      </button>
+      <label class="uploadButton">
+          <input type="file" id="imgFile" name="imgFile" form='imgForm' enctype="multipart/form-data" style="display:None">
+          <i class="fa fa-cloud-upload"></i>
+      </label>
+
+
+      <form id='logoForm' action='/search/logoUploader' method='post' enctype="multipart/form-data">
+      </form>
+
+      <button type="submit" form="logoForm" class="independentSearchButton">
+          <i class="fas fa-stream"></i>
+      </button>
+      <label class="uploadButton">
+          <input type="file" id="logoFile" name="logoFile" form='logoForm' enctype="multipart/form-data"style="display:None">
+          <i class="fa fa-cloud-upload"></i>
+      </label>
+    </div>
+
+    
   </div>
 </body>
 {% block content %}{% endblock %}
