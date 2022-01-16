@@ -32,19 +32,15 @@
       <button type="submit" form="searchForm" class="searchButton">
         <i class="fa fa-search"></i>
       </button>
-    </div>
-
-
-    <div class="imgSearchWrap">
       <form id='imgForm' action='/search/imageUploader' method='POST' enctype="multipart/form-data">
       </form>
 
       <button type="submit" form="imgForm" class="independentSearchButton">
           <i class="far fa-image"></i>
       </button>
-      <label class="uploadButton">
+      <label class="uploadButton frontpageButton">
           <input type="file" id="imgFile" name="imgFile" form='imgForm' enctype="multipart/form-data" style="display:None">
-          <i class="fa fa-cloud-upload"></i>
+          <i class="fa fa-cloud-upload"style="margin-right: 10px;"></i>Image
       </label>
 
 
@@ -52,15 +48,20 @@
       </form>
 
       <button type="submit" form="logoForm" class="independentSearchButton">
-          <i class="fas fa-stream"></i>
+          <i class="fas fa-stream" ></i>
       </button>
-      <label class="uploadButton">
+      <label class="uploadButton frontpageButton">
           <input type="file" id="logoFile" name="logoFile" form='logoForm' enctype="multipart/form-data"style="display:None">
-          <i class="fa fa-cloud-upload"></i>
+          <i class="fa fa-cloud-upload"style="margin-right: 10px;"></i>Logo
       </label>
     </div>
 
-    
+
+    <div class="imgSearchWrap">
+
+    </div>
+
+
   </div>
 </body>
 {% block content %}{% endblock %}

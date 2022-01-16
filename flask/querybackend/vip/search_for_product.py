@@ -24,10 +24,17 @@ transform=transforms.Compose([
 ])
 
 Data=list()
+for root, dirnames, filenames in os.walk(INTERNAL_DIR):
+    for filename in filenames :
+        if filename.endswith('.json') and not filename.startswith('.'):
+            with open(os.path.join(INTERNAL_DIR, filename),'r',encoding='utf8') as data_json:
+                Data+=json.load(data_json)
+'''
 for i in range(DATA_NUM):
     #open内为json_data保存路径，格式见内
     with open(os.path.join(INTERNAL_DIR, "data%d.json"%i),'r',encoding='utf8') as data_json:
         Data+=json.load(data_json)
+'''
 
 def feature_model(img):
     img=transform(img)
@@ -65,17 +72,19 @@ def Find_Similiarity(search_img,data=Data):
         print("compare finished")
         sort_list=sorted(sort_list,key=lambda tup:tup[0],reverse=True)
         id_final=list()
-        for i in range(200):
+        for i in range(min(len(sort_list,400))):
             id_final.append(sort_list[i][1])
         print(id_final[0:10])
         return id_final
     
 
 if __name__=="__main__":
+    '''
     Data=list()
     for i in range(DATA_NUM):
         with open("./data%d.json"%i,'r',encoding='utf8') as data_json:
             Data+=json.load(data_json)
-    search_img=Image.open("./test.jpg")
+    '''
+    search_img=Image.open(os.path.join(INTERNAL_DIR, "test.jpg"))
     Find_Similiarity(search_img,Data)
     

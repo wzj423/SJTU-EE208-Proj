@@ -42,10 +42,8 @@ def create_app(test_config=None):
     def redirect_to_search():
         #return redirect(url_for('search.search_results',keywords='中国'))
         return redirect(url_for('search.search_webpages'))
-    import imgsearch
     import search
     app.register_blueprint(search.bp)
-    app.register_blueprint(imgsearch.bp)
     return app
 
 
