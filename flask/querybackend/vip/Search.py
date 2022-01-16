@@ -26,7 +26,7 @@ def keywordQueryWrapped(keyword):
     searcher = IndexSearcher(DirectoryReader.open(directory))
     analyzer = WhitespaceAnalyzer()
     print ("Hit enter with no input to quit.")
-    command = keyword
+    command = "".join(keyword.split())
     print ("Searching for:", command)
     querys = BooleanQuery.Builder()
     jieba.load_userdict(os.path.join(INTERNAL_DIR, "usedict.txt"))

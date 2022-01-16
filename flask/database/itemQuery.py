@@ -10,6 +10,7 @@ def getCategory(filename):
     for cate in builtin_category:
         if filename.find(cate)!=-1:
             return cate
+    if filename.find('服')!=-1: return "衣服 "
 
 def commentSatisFactor(item):
     satisScore={'VERY_SATISFIED':2.5,'SATISFIED':1,'DISSATISFIED':-3,'VERY_DISSATISFIED':-8,'GENERAL':0.5}

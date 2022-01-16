@@ -1,8 +1,6 @@
 # SJTU EE208
 
-INDEX_DIR = "IndexFiles.index"
-DATA_NUM=1
-INTERNAL_DIR=os.path.dirname(__file__)
+
 import json
 import sys, os, lucene, threading, time, re
 import jieba
@@ -17,7 +15,9 @@ from org.apache.lucene.document import Document, Field, FieldType, StringField, 
 from org.apache.lucene.index import FieldInfo, IndexWriter, IndexWriterConfig,IndexOptions,Term
 from org.apache.lucene.store import SimpleFSDirectory
 from org.apache.lucene.util import Version
-
+INDEX_DIR = "IndexFiles.index"
+DATA_NUM=1
+INTERNAL_DIR=os.path.dirname(__file__)
 class Ticker(object):
     def __init__(self):
         self.tick = True
@@ -89,9 +89,16 @@ if __name__ == '__main__':
     lucene.initVM(vmargs=['-Djava.awt.headless=true'])
     #print('lucene', lucene.VERSION)
     Data=list()
+    '''
     for i in range(DATA_NUM):
         with open("./data%d.json"%i,'r',encoding='utf8') as data_json:
             Data+=json.load(data_json)
+    '''
+    for root, dirnames, filenames in os.walk(INTERNAL_DIR):
+        for filename in filenames :
+            if filename.endswith('.json') and not filename.startswith('.'):
+                with open(os.path.join(INTERNAL_DIR, filename),'r',encoding='utf8') as data_json:
+                    Data+=json.load(data_json)
     #Data包含了所有Data为名的json数据，为列表类型。
     try:
         Index_Building(Data)

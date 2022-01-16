@@ -35,7 +35,7 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    init_lucene()
+    init_lucene() 
 
     # a simple page that says hello
     @app.route('/')
