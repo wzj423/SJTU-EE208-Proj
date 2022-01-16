@@ -73,8 +73,8 @@ def crawl_comment_ex(search_keyword):
             #page.wait_for_timeout(1000)
             #page.wait_for_load_state(state='networkidle',)
             page.click(".dt-list-item.J-topbar-tabs.J-detail-commentCnt")
-            page.wait_for_timeout(500)
-            page.wait_for_load_state(state='load',)
+            #page.wait_for_timeout(900)
+            page.wait_for_load_state(state='networkidle',)
             page.close()
 
             ful_detailed_data[pid]=cur_detailed_data
